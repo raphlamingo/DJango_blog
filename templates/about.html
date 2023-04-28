@@ -1,0 +1,41 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content%}
+				<!-- Main -->
+					<div id="main" style="display: flex; justify-content: center; align-items: center;" >
+
+						<!-- Post -->
+							<article class="post" style="width:80%;">
+                                <div style="display: flex;">
+                                    <div style="flex: 1; text-align: left; ">
+                                        <div class="title">
+                                            <h2 > Hey</h2>
+                                            <h2 style="padding-top: 3%;">I'm {{user.first_name}} {{user.last_name}}</h2>
+                                             <h2 style="padding-top: 3%;"> and thats me over there.... 
+                                            </h1>
+                                        </div>
+                                    </div>        
+                                    <div style="flex: 1; text-align: center;">
+                                        <img src="{{user.profile_picture.url}}" style="width: 50%;"/>
+                                    </div>
+                                </div>
+								<p style="padding-top: 5%;">{{user.about_me}}</p>
+                                <h2 style="padding-top: 5%;">familiar works</h2>
+                                <section>
+                                    <ul class="posts">
+                                        {%for post in post%}
+                                        <li>
+                                            <article>
+                                                <header>
+                                                    <h3><a href="{% url 'read' post.id %}">{{post.title}}</a></h3>
+                                                    <time class="published" datetime="2015-10-20">{{post.created}}</time>
+                                                </header>
+                                                <a href="{% url 'read' post.id %}" class="image"><img src="{{post.upload_picture.url}}" alt="" /></a>
+                                            </article>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </section>
+							</article>
+                        </div>
+{% endblock %}

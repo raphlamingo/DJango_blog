@@ -1,0 +1,27 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content%}
+				<!-- Main -->
+					<div id="main" style="display: flex; justify-content: center; align-items: center;" >
+
+						<!-- Post -->
+							<article style="width:80%;">
+                                <section>
+                                    <ul class="posts">
+                                        {% for use in user %}
+                                        <li>
+                                            <article>
+                                                <header>
+                                                    <h3><a href="{% url 'result' use.id %}">{{use.first_name}} {{use.last_name}}</a></h3>
+                                                </header>
+                                                <a href="{% url 'result' use.id %}" class="image"><img src="{{use.profile_picture.url}}" alt="" /></a>
+                                            </article>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </section>
+							</article>
+                        </div>
+{% endblock %}
+
+

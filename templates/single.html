@@ -1,0 +1,30 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content%}
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2><a href="#">{{post.title}}</a></h2>
+									</div>
+									<div class="meta">
+										<time class="published" datetime="{{post.created}}">{{post.created}}</time>
+										<a href="{% url 'about' post.writer.id %}" class="author"><span class="name">{{post.writer.first_name}} {{post.writer.last_name}}</span><img src="images/avatar.jpg" alt="" /></a>
+									</div>
+								</header>
+								<span class="image fit"><img src="{{post.upload_picture.url}}" alt="" /></span>
+								<p>{{post.content}}</p>
+								<footer>
+									<ul class="stats">
+										<li><a href="#">General</a></li>
+										<li><a href="#" class="icon solid fa-heart">28</a></li>
+										<li><a href="#" class="icon solid fa-comment">128</a></li>
+									</ul>
+								</footer>
+							</article>
+
+					</div>
+{% endblock %}

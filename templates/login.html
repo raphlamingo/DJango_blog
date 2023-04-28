@@ -1,0 +1,30 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content%}
+                    <div id="main" style="display: flex; justify-content: center; align-items: center;">
+                            <div style="text-align: center; width: 50%;" >
+
+                                <article class="post">
+									<h1 style="font-family: 'Permanent Marker', cursive;font-size: 3rem;">
+										Login
+									</h1>
+									{% if messages %}
+									<ul class="messages">
+										{% for message in messages %}
+										<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+										{% endfor %}</ul>
+									{% endif %}
+                                    <form action="{% url 'login' %}" method="post">
+                                        {% csrf_token %}
+										<label style="font-family: 'Permanent Marker', cursive;font-size: 1rem;"> Username</label>
+                                        <input style="text-align: center;" type="text" name="username" placeholder="name" >
+										<label style="font-family: 'Permanent Marker', cursive;font-size: 1rem; padding-top: 10%;"> Password</label>
+                                        <input style="text-align: center;" type="password" name="password" placeholder="password" >
+										<br>
+                                        <input type="submit">
+                                    </form>
+                                </article>
+                            </div>
+                        </div>
+
+{% endblock %}

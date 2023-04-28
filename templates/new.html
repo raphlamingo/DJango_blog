@@ -1,0 +1,24 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content%}
+                    <div id="main" style="display: flex; justify-content: center; align-items: center;">
+                        <div style="width: 70%;">
+							<article class="post">
+								{% if messages %}
+								<ul class="messages">
+									{% for message in messages %}
+									<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+									{% endfor %}</ul>
+								{% endif %}
+								<form action="" method="post">
+									{% csrf_token %}
+									{{form}}
+									<br>
+									<br>
+								<input type="submit">
+								</form>
+							</article>
+						</div>  
+
+                            </div>
+{% endblock %}

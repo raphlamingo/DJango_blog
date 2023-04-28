@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+	<head>
+		<title>Kasi's Mind</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'css/main.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/d.css' %}" />
+		<script src="https://kit.fontawesome.com/7828952f17.js" crossorigin="anonymous"></script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="{% url 'home' %}">Kasi's Mind</a></h1>
+						<nav class="main">
+							<ul>
+								<li class="search">
+									<a class="fa-search" href="#search">Search</a>
+									<form id="search" method="get" action="{% url 'search' %}">
+										<input type="text" name="query" placeholder="Search by writer first_name" />
+									</form>
+								</li>
+								<li class="menu">
+									<a class="fa-bars" href="#menu">Menu</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<section id="menu">
+
+						<!-- Search -->
+							<section>
+								<form class="search" method="get" action="{% url 'search' %}">
+									<input type="text" name="query" placeholder="Search by writer first_name" />
+								</form>
+							</section>
+
+						<!-- Links -->
+							<section>
+								<ul class="links">
+										<li><a href="{% url 'create'%}">Write</a></li>
+										<li><a href="{% url 'profile'%}">Your profile</a></li>
+										{% if request.user.is_authenticated %}
+										<li><a href="{% url 'logout_user'%}">Logout</a></li>
+										{% else %}
+										<li><a href="{% url 'register'%}">Register</a></li>
+										<li><a href="{% url 'login'%}">Log In</a></li>
+										{% endif %}
+									</ul>
+								</ul>
+							</section>
+
+					</section>
+					</header>
+
+{% block content%}
+
+{% endblock %}
+
+						<!-- Footer -->
+					</div>
+						<div class="foot" style="display: flex; justify-content: center;">
+							<section id="footer" >
+								<ul class="icons">
+									<li><a href="https://twitter.com/_Raphlamingo" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="https://www.instagram.com/faenyi.sama/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon solid fa-rss"><span class="label">Linkedin</span></a></li>
+									<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+								<p class="copyright">&copy; Raphlamingo 2023</p>
+							</section>
+						</div>
+		
+		
+		
+		
+					<script src="{% static 'js/jquery.min.js' %}"></script>
+					<script src="{% static 'js/browser.min.js' %}"></script>
+					<script src="{% static 'js/breakpoints.min.js' %}"></script>
+					<script src="{% static 'js/util.js' %}"></script>
+					<script src="{% static 'js/main.js' %}"></script>
+			
+			</body>
+			</html>
+    
